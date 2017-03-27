@@ -1,0 +1,11 @@
+let express = require('express');
+let router = express.Router();
+let bodyparser = require('body-parser');
+let cors = require('cors');
+let user = require('../controller/userroute');
+router.use(bodyparser());
+router.use(cors());
+router.post('/register', user.registration);
+router.post('/login', user.login);
+router.get('/fetchuser',user.fetchuser);
+module.exports = router;
