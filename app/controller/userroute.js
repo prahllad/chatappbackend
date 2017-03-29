@@ -39,7 +39,8 @@ module.exports = {
 
     },
     fetchuser: (req,res,next) =>{
-        databasefunction.getuser().then((resol) =>{
+      console.log(req.query);
+        databasefunction.getuser(req.query).then((resol) =>{
             if(resol === null){
                 res.status(500).send({'status': 0, 'err' : 'error'})
             }

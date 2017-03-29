@@ -32,10 +32,10 @@ module.exports = {
             });
         });
     },
-    getuser: ()=> {
+    getuser: (obj)=> {
         return new Promise((resolve , reject) =>{
             console.log('user data fetching');
-            User.find((err,data) =>{
+            User.find({'email':{$ne:obj.email}},(err,data) =>{
                if(err) reject(err);
                else resolve(data);
             });
