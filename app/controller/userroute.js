@@ -1,4 +1,5 @@
 let databasefunction = require('../helper/userquery');
+let fetchconversation = require('../helper/chatlog');
 let errors = require('../config');
 module.exports = {
     registration: (req,res,next) => {
@@ -48,5 +49,17 @@ module.exports = {
                 res.status(200).send({'status': 1, 'data': resol})
             }
         }).catch((rej)=> res.status(500).send({'status' :0, 'err':'data not fetched'}));
+    },
+    fetchchat: (req,res,next) =>{
+        console.log(req.body);
+        fetchconversation.fetchChat(req.body).then((resol)=>{
+            if(resol == null){
+                res.satus(500).send({'status':0 , 'data':{'message':''}})
+                console.log(resol);
+            } else{
+                console.log(resol);
+                res.status(200).send({'status':1 , 'data': resol})
+            }
+        }).catch((resj)=> res.satus(500).send({'status': 0, 'err': 'err in fetching'}));
     }
 }

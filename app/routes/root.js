@@ -8,4 +8,5 @@ router.use(cors());
 router.post('/register', user.registration);
 router.post('/login', user.login);
 router.get('/fetchuser',user.fetchuser);
+router.post('/fetchchat',user.fetchchat);
 module.exports = router;

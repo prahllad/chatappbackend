@@ -15,7 +15,16 @@ module.exports = {
  },
  fetchChat : (obj) =>{
    return new Promise((resolve,reject)=>{
-     //chatlog.find()
-   })
+     chatlog.find({ $or: [ { 'sender': obj.sender,'reciver':obj.reciver}, { 'sender': obj.reciver ,'reciver': obj.sender} ] },
+     (err,data)=>{
+       console.log('fetching conversation');
+       if(err){
+         console.log(err);
+         reject(err);
+       } else{
+         resolve(data);
+       }
+     });
+   });
  } 
 }
