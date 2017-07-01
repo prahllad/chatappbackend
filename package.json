@@ -18,5 +18,8 @@
   "homepage": "https://github.com/prahllad/chatappbackend#readme",
   "dependencies": {
     "domain-based-spellchecker": "^1.0.4"
+  },
+  "engines": {
+    "node": "4.1.1"
   }
 }
